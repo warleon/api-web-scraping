@@ -1,4 +1,4 @@
-org: geraldocolchado
+org: warleon
 service: api-web-scraping
 
 provider:
@@ -8,14 +8,14 @@ provider:
   memorySize: 1024
   timeout: 30
   iam:
-    role: arn:aws:iam::606646193182:role/LabRole
+    role: arn:aws:iam::407603477016:role/LabRole
 
 functions:
   scrape_table:
-    handler: scrap_table.lambda_handler  # Asegúrarse de que el nombre del archivo y la función coincidan
+    handler: scrap_table.lambda_handler # Asegúrarse de que el nombre del archivo y la función coincidan
     package:
       include:
-        - ./**  # Incluir todo el contenido del directorio
+        - ./** # Incluir todo el contenido del directorio
     events:
       - http:
           path: /scrape/table
