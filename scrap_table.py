@@ -8,6 +8,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
+from selenium.webdriver.chrome.service import Service
+
 
 def get_driver():
     chrome_options = Options()
@@ -18,15 +20,16 @@ def get_driver():
     chrome_options.add_argument("--single-process")
     chrome_options.add_argument("--window-size=1920,1080")
     chrome_options.add_argument(
-        "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-        " AppleWebKit/537.36 (KHTML, like Gecko)"
-        " Chrome/120.0.0.0 Safari/537.36"
+        "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/120.0.0.0 Safari/537.36"
     )
 
     chrome_options.binary_location = "/opt/chrome/chrome"
-    driver = webdriver.Chrome(
-        executable_path="/opt/chromedriver", options=chrome_options
-    )
+
+    service = Service("/opt/chromedriver")
+
+    driver = webdriver.Chrome(service=service, options=chrome_options)
     return driver
 
 
