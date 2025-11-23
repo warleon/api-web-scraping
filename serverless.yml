@@ -23,7 +23,7 @@ functions:
           cors: true
           integration: lambda
     layers:
-      - arn:aws:lambda:us-east-1:764866452798:layer:chromium:1
+      - arn:aws:lambda:us-east-1:922761411102:layer:chrome-aws-lambda:50
 
 resources:
   Resources:
