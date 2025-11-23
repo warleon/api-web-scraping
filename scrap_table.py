@@ -49,7 +49,10 @@ def lambda_handler(event, context):
         return {
             "statusCode": 404,
             "body": json.dumps(
-                {"error": "No se encontró la tabla de sismos en la página web"}
+                {
+                    "error": "No se encontró la tabla de sismos en la página web",
+                    "page": soup.prettify(),
+                }
             ),
         }
 
