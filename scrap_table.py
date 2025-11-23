@@ -17,8 +17,7 @@ def get_driver():
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--single-process")
     chrome_options.add_argument("--window-size=1280x1696")
-    chrome_options.binary_location = "/opt/chromium"
-
+    chrome_options.binary_location = "/opt/headless-chromium"
     service = Service("/opt/chromedriver")
 
     return webdriver.Chrome(service=service, options=chrome_options)
